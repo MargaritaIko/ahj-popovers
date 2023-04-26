@@ -13,15 +13,15 @@ export default class Popover {
   }
 
   onClick(seconds) {
-    const container = document.querySelector(".container-btn");
-    const button = document.querySelector(".btn");
+    const container = document.querySelector('.container-btn');
+    const button = document.querySelector('.btn');
 
-    button.addEventListener("click", () => {
+    button.addEventListener('click', () => {
       if (this._flag) return;
       this._flag = true;
-      const popUp = document.createElement("div");
-      popUp.classList.add("popup");
-      popUp.setAttribute("data-id", "popup");
+      const popUp = document.createElement('div');
+      popUp.classList.add('popup');
+      popUp.setAttribute('data-id', 'popup');
       popUp.innerHTML = this.markup();
       container.appendChild(popUp);
       popUp.style.marginTop = `${
