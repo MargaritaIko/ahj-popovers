@@ -1,31 +1,40 @@
-import "../css/style.css";
-import NPSicons from "./NPSicon";
-import paymentSysType from "./npsCheck";
-import luhnChk from "./lenghtCheck";
-import CallResponses from "./serverResponse";
-import lenghtCheck from "./lenghtCheck";
+export default class Popover {
+  constructor(title, content) {
+    this.title = title;
+    this.content = content;
+    this._flag = false;
+  }
 
-window.addEventListener("load", () => {
-  const iconManager = new NPSicons();
-  iconManager.iconSetter();
+  markup() {
+    return `
+    <h3 class="popoverTitle">${this.title}</h3>
+    <div class="popoverContent">${this.content}</div>
+    `;
+  }
 
-  const response = new CallResponses();
-  const cardForm = document.querySelector(".validate-form");
-  const resetBtn = document.querySelector(".reset-button");
-  const inputField = document.getElementById("validate-form__input");
+  onClick(seconds) {
+    const container = document.querySelector(".container-btn");
+    const button = document.querySelector(".btn");
 
-  cardForm.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const cardType = paymentSysType(inputField.value);
-    if (cardType && lenghtCheck(inputField.value)) {
-      response.cardTypeFound(cardType);
-    } else if (inputField.value !== "") {
-      response.cardTypeNotFound();
-    }
-  });
+    button.addEventListener("click", () => {
+      if (this._flag) return;
+      this._flag = true;
+      const popUp = document.createElement("div");
+      popUp.classList.add("popup");
+      popUp.setAttribute("data-id", "popup");
+      popUp.innerHTML = this.markup();
+      container.appendChild(popUp);
+      popUp.style.marginTop = `${
+        -button.offsetHeight - popUp.offsetHeight - 15
+      }px`;
+      popUp.style.marginLeft = `${
+        0.5 * (button.offsetWidth - popUp.offsetWidth)
+      }px`;
 
-  resetBtn.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    response.inputClear();
-  });
-});
+      setTimeout(() => {
+        button.parentElement.removeChild(popUp);
+        this._flag = false;
+      }, seconds);
+    });
+  }
+}
