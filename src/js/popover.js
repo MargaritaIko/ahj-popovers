@@ -16,23 +16,23 @@ export default class Popover {
   }
 
   init() {
-    this.container.insertAdjacentHTML('beforeend', this.buttonHTML);
+    this.container.insertAdjacentHTML("beforeend", this.buttonHTML);
 
-    this.button = document.querySelector('.button');
-    this.button.addEventListener('click', this.onClick);
+    this.button = document.querySelector(".button");
+    this.button.addEventListener("click", this.onClick);
   }
 
   onClick(e) {
     e.preventDefault();
 
-    let popover = this.container.querySelector('.popover');
+    let popover = this.container.querySelector(".popover");
     if (popover) {
       popover.remove();
       return;
     }
 
-    this.container.insertAdjacentHTML('beforeend', this.popoverHTML);
-    popover = this.container.querySelector('.popover');
+    this.container.insertAdjacentHTML("beforeend", this.popoverHTML);
+    popover = this.container.querySelector(".popover");
 
     const { left, top } = this.button.getBoundingClientRect();
 
