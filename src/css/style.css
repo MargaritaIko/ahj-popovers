@@ -1,60 +1,58 @@
-.container-btn{
-    width: 50%;
-    padding-top: 30%;
-    padding-left: calc(25% + 138px/2);
-    margin: auto;
-}
-.btn{
-    background-color: rgb(182, 0, 0);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-.btn:hover{
-    background-color: rgb(139, 0, 0);
-    cursor: pointer;
-  }
-.btn:active{
-    background-color: rgb(122, 0, 0);
-    cursor: pointer;
-    border-bottom: 1px solid rgb(41, 0, 0);
-}
-.popup{
-    position: relative;
-    border: 1px solid #805555;
+* {
     box-sizing: border-box;
-    border-radius: 5px;
-    max-width: 240px;
-    margin-bottom: 10px;
-}
-.popup::after,
-.popup::before{
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    left: calc(50% - 10px);
-}
-.popup::after{
-    border-top: 10px solid #fff;
-    bottom: -18px;
-}
-.popup::before{
-    border-top: 10px solid #6b6b6b;
-    bottom: -20px;
-  }
-.popoverTitle{
-    font-weight: 700;
-    padding: 10px;
-    background-color: #c5c5c5;
     margin: 0;
-}
-.popoverContent{
-    padding: 10px;
-}
+    padding: 0;
+  }
+  
+  body {
+    padding: 200px;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+  
+  .popover {
+    position: absolute;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0, .2);
+    border-radius: 0.3rem;
+  }
+  
+  .popover-title {
+    padding: 0.5rem 0.75rem;
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+  }
+  
+  .popover-text {
+    padding: 0.5rem 0.75rem;
+    color: #212529;
+  }
+  
+  .popover::before, .popover::after {
+    content: ''; 
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    border: 10px solid transparent;
+    border-top: 10px solid rgb(0, 0, 0, .2);
+    transform: translateX(-50%);
+   }
+   .popover::after {
+    border-top: 10px solid white;
+    bottom: -19px; 
+   }
+  

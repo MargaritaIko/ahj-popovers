@@ -7,13 +7,13 @@
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint . --fix",
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "coverage": "jest --coverage",
     "preshow:coverage": "npm run coverage",
     "show:coverage": "live-server coverage/lcov-report",
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist",
-    "doc": "jsdoc -c jsdoc.conf.json"
+    "deploy": "push-dir --dir=/dist --branch=gh-pages"
   },
   "author": "MargaritaIko",
   "license": "MIT",
