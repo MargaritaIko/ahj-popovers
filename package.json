@@ -13,7 +13,6 @@
     "show:coverage": "live-server coverage/lcov-report",
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist",
-    "deploy": "push-dir --dir=/dist --branch=gh-pages"
   },
   "author": "MargaritaIko",
   "license": "MIT",
